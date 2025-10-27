@@ -21,7 +21,7 @@ export default function MapsSubTab() {
           <div className="bg-slate-900 rounded border border-slate-600 overflow-hidden">
             <Zoom>
               <img
-                src="/images/maps/world-map.jpeg"
+                src="./images/maps/world-map.jpeg"
                 alt="World Map of Dark Havens"
                 className="w-full h-auto"
                 onError={(e) => {
@@ -46,7 +46,7 @@ export default function MapsSubTab() {
           <div className="bg-slate-900 rounded border border-slate-600 overflow-hidden">
             <Zoom>
               <img
-                src="/images/maps/nausalistia.jpeg"
+                src="./images/maps/nausalistia.jpeg"
                 alt="World Map of Dark Havens"
                 className="w-full h-auto"
                 onError={(e) => {
@@ -69,7 +69,7 @@ export default function MapsSubTab() {
             <InfoBox title="Leoman">
               <Zoom>
                 <img
-                  src="/images/maps/leoman.jpeg"
+                  src="./images/maps/leoman.jpeg"
                   alt="Leoman"
                   className="w-full h-full object-cover rounded mb-2"
                 />
@@ -80,7 +80,7 @@ export default function MapsSubTab() {
             <InfoBox title="Eastern New Kiblic">
               <Zoom>
                 <img
-                  src="/images/maps/eastern-new-kiblic.jpeg"
+                  src="./images/maps/eastern-new-kiblic.jpeg"
                   alt="Eastern New Kiblic"
                   className="w-full h-auto object-cover rounded mb-2"
                 />
@@ -90,7 +90,7 @@ export default function MapsSubTab() {
             <InfoBox title="Southern New Kiblic">
               <Zoom>
                 <img
-                  src="/images/maps/southern-new-kiblic.jpeg"
+                  src="./images/maps/southern-new-kiblic.jpeg"
                   alt="Southern New Kiblic"
                   className="w-full h-auto object-cover rounded mb-2"
                 />
@@ -99,7 +99,7 @@ export default function MapsSubTab() {
             <InfoBox title="Western New Kiblic">
               <Zoom>
                 <img
-                  src="/images/maps/western-new-kiblic.jpeg"
+                  src="./images/maps/western-new-kiblic.jpeg"
                   alt="Western New Kiblic"
                   className="w-full h-auto object-cover rounded mb-2"
                 />
@@ -108,7 +108,7 @@ export default function MapsSubTab() {
             <InfoBox title="Rugliorhiel">
               <Zoom>
                 <img
-                  src="/images/maps/rugliorhiel.jpeg"
+                  src="./images/maps/rugliorhiel.jpeg"
                   alt="Rugliorhiel"
                   className="w-full h-auto object-cover rounded mb-2"
                 />
@@ -117,7 +117,7 @@ export default function MapsSubTab() {
             <InfoBox title="Jaster">
               <Zoom>
                 <img
-                  src="/images/maps/jaster.jpeg"
+                  src="./images/maps/jaster.jpeg"
                   alt="Jaster"
                   className="w-full h-auto object-cover rounded mb-2"
                 />
@@ -126,7 +126,7 @@ export default function MapsSubTab() {
             <InfoBox title="Gufrailand, Forgotten Mountain, and the Holy Order of Quora">
               <Zoom>
                 <img
-                  src="/images/maps/forgotten-mountain.jpeg"
+                  src="./images/maps/forgotten-mountain.jpeg"
                   alt="Gufrailand, Forgotten Mountain, and the Holy Order of Quora"
                   className="w-full h-auto object-cover rounded mb-2"
                 />
@@ -135,7 +135,7 @@ export default function MapsSubTab() {
             <InfoBox title="Northwestern Nausalistria">
               <Zoom>
                 <img
-                  src="/images/maps/northwestern-nausalistria.jpeg"
+                  src="./images/maps/northwestern-nausalistria.jpeg"
                   alt="Northwestern Nausalistria"
                   className="w-full h-auto object-cover rounded mb-2"
                 />

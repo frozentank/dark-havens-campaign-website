@@ -9,6 +9,7 @@ import MapsSubTab from './tabs/setting/MapsSubTab';
 import CharactersSubTab from './tabs/setting/CharactersSubTab';
 import PeopleOfInterestSubTab from './tabs/setting/PeopleOfInterestSubTab';
 import VilliansSubTab from './tabs/setting/VilliansSubTab';
+import DeitiesSubTab from './tabs/setting/DeitiesSubTab';
 
 export default function DnDCampaign() {
   const [activeTab, setActiveTab] = useState('home');
@@ -46,6 +47,7 @@ export default function DnDCampaign() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex gap-2 overflow-x-auto flex-wrap">
               <SubTabButton id="cultures" icon={Globe} label="Cultures" activeSubTab={activeSubTab} onClick={setActiveSubTab} />
+              <SubTabButton id="deities" icon={Globe} label="Deities" activeSubTab={activeSubTab} onClick={setActiveSubTab} />
               <SubTabButton id="maps" icon={MapPin} label="Maps" activeSubTab={activeSubTab} onClick={setActiveSubTab} />
               <SubTabButton id="characters" icon={Users} label="Characters" activeSubTab={activeSubTab} onClick={setActiveSubTab} />
               <SubTabButton id="people" icon={User} label="People of Interest" activeSubTab={activeSubTab} onClick={setActiveSubTab} />
@@ -61,6 +63,7 @@ export default function DnDCampaign() {
         {activeTab === 'setting' && (
           <>
             {activeSubTab === 'cultures' && <CulturesSubTab />}
+            {activeSubTab === 'deities' && <DeitiesSubTab />}
             {activeSubTab === 'maps' && <MapsSubTab />}
             {activeSubTab === 'characters' && <CharactersSubTab />}
             {activeSubTab === 'people' && <PeopleOfInterestSubTab />}
