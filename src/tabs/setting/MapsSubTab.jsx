@@ -144,7 +144,7 @@ export default function MapsSubTab() {
             <InfoBox title="New Kiblic Capital">
               <Zoom>
                 <img
-                  src="./images/maps/new-kiblic-capitaljpeg"
+                  src="./images/maps/new-kiblic-capital.jpeg"
                   alt="New Kiblic Capital"
                   className="w-full h-auto object-cover rounded mb-2"
                 />

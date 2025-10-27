@@ -1,0 +1,46 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="iconTitle" role="img">
+  <title id="iconTitle">Dark Havens Campaign Icon</title>
+  
+  <!-- 
+    This icon represents "Dark Havens".
+    - The shield shape symbolizes a "Haven" or place of safety.
+    - The crenellated tower reinforces the idea of a fortified refuge.
+    - The crescent moon and dark color scheme evoke the "Dark" theme.
+    - The glowing windows suggest life and sanctuary within the darkness.
+    The style is minimal and symbolic, suitable for a campaign logo.
+  -->
+
+  <!-- Main group for all elements -->
+  <g id="dark-havens-crest">
+
+    <!-- Shield shape as the background and frame -->
+    <path id="shield-background" 
+          d="M10 10 L10 50 C10 80, 50 95, 50 95 C50 95, 90 80, 90 50 L90 10 Z" 
+          fill="#2C3E50" 
+          stroke="#1A2533" 
+          stroke-width="2"/>
+
+    <!-- Crescent moon in the upper right -->
+    <path id="crescent-moon" 
+          d="M75 25 C 70 35, 60 45, 70 50 C 72 45, 75 35, 75 25 Z" 
+          fill="#F1C40F"/>
+
+    <!-- Tower silhouette representing the haven -->
+    <g id="tower-silhouette">
+      <!-- Main tower body -->
+      <rect x="35" y="40" width="30" height="40" fill="#465A75"/>
+      
+      <!-- Crenellations (battlements) on top of the tower -->
+      <rect x="32" y="35" width="36" height="5" fill="#465A75"/>
+      <rect x="33" y="30" width="6" height="5" fill="#2C3E50"/>
+      <rect x="47" y="30" width="6" height="5" fill="#2C3E50"/>
+      <rect x="61" y="30" width="6" height="5" fill="#2C3E50"/>
+      
+      <!-- Glowing windows suggesting life within -->
+      <rect x="42" y="50" width="6" height="8" fill="#F1C40F"/>
+      <rect x="52" y="50" width="6" height="8" fill="#F1C40F"/>
+    </g>
+    
+  </g>
+</svg>
