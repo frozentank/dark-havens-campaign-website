@@ -141,6 +141,33 @@ export default function MapsSubTab() {
                 />
               </Zoom>
             </InfoBox>
+            <InfoBox title="New Kiblic Capital">
+              <Zoom>
+                <img
+                  src="./images/maps/new-kiblic-capitaljpeg"
+                  alt="New Kiblic Capital"
+                  className="w-full h-auto object-cover rounded mb-2"
+                />
+              </Zoom>
+            </InfoBox>
+            <InfoBox title="Forgotten Mountain City">
+              <Zoom>
+                <img
+                  src="./images/maps/forgotten-mountain-city.jpeg"
+                  alt="Forgotten Mountain City"
+                  className="w-full h-auto object-cover rounded mb-2"
+                />
+              </Zoom>
+            </InfoBox>
+            <InfoBox title="Redyard">
+              <Zoom>
+                <img
+                  src="./images/maps/redyard.jpeg"
+                  alt="Redyard"
+                  className="w-full h-auto object-cover rounded mb-2"
+                />
+              </Zoom>
+            </InfoBox>
           </div>
         </div>
       </div>
