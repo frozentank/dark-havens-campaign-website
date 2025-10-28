@@ -5,7 +5,34 @@ import CharacterCreationSubTab from './rules/CharacterCreationSubTab';
 import CombatRulesSubTab from './rules/CombatRulesSubTab';
 
 export default function RulesTab() {
-  const [activeSubTab, setActiveSubTab] = useState('creation');
+  // Parse URL hash to get the rules sub-tab
+  const getInitialSubTab = () => {
+    const hash = window.location.hash.slice(1); // Remove '#'
+    if (hash.startsWith('rules/')) {
+      const parts = hash.split('/');
+      return parts[1] || 'creation';
+    }
+    return 'creation';
+  };
+
+  const [activeSubTab, setActiveSubTab] = useState(getInitialSubTab());
+
+  // Update URL hash when sub-tab changes
+  const handleSubTabChange = (newSubTab) => {
+    setActiveSubTab(newSubTab);
+    window.location.hash = `rules/${newSubTab}`;
+  };
+
+  // Listen for hash changes (browser back/forward buttons)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const subTab = getInitialSubTab();
+      setActiveSubTab(subTab);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   return (
     <div className="space-y-8">
