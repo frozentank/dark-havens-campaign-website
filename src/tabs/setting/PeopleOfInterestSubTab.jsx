@@ -15,7 +15,7 @@ export default function PeopleOfInterestSubTab() {
             <NPCCard
               name="Duke Matthias Bronson"
               description="Human Male, adult. Duke of Leoman."
-              imagePath="/images/people/matthias-bronson.jpeg"
+              imagePath="./images/people/matthias-bronson.jpeg"
             />
             <NPCCard
               name="Barinon de Bulbec"
@@ -124,12 +124,12 @@ export default function PeopleOfInterestSubTab() {
             <NPCCard
               name="Heggear, son of Sikhuli"
               description="Dwarf male, adult. Cousin to the King of the Ascar."
-              imagePath="/images/people/heggear.jpeg"
+              imagePath="./images/people/heggear.jpeg"
             />
             <NPCCard
               name="Budoc, son of Radderlig. Konugr undir fjallim"
               description="Dwarf male, adult. King of the Ascar. True King under the mountain."
-              imagePath="/images/people/budoc.jpeg"
+              imagePath="./images/people/budoc.jpeg"
             />
           </div>
         </div>

@@ -9,7 +9,7 @@ export default function NPCCard({
 }) {
   // Convert name to image filename (lowercase, replace spaces with hyphens)
   const imageFileName = name.toLowerCase().replace(/['\s]/g, '-').replace(/--+/g, '-');
-  const fullImagePath = imagePath || `/images/people/${imageFileName}.jpeg`;
+  const fullImagePath = imagePath || `./images/people/${imageFileName}.jpeg`;
 
   return (
     <div className="bg-slate-900 p-4 rounded-lg border border-slate-600 hover:border-blue-500 transition-colors">
