@@ -93,7 +93,7 @@ export default function PeopleOfInterestSubTab() {
             />
             <NPCCard
               name="Magranar"
-              description="Goliath male, adult. Horse thief captured in New Kiblic capital."
+              description="Goliath male, adult. Horse theif captured in New Kiblic capital."
             />
             <NPCCard
               name="Ponelope Everson"
@@ -101,7 +101,7 @@ export default function PeopleOfInterestSubTab() {
             />
             <NPCCard
               name="Jorondess"
-              description="Copper Dragonborn male, young. Sherrif of a group of Oshos."
+              description="Copper Dragonborn male, young. Sheriff of a group of Oshos."
             />
             <NPCCard
               name="Kijeness"
