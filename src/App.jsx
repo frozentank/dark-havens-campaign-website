@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Swords, Shield, Map, Globe, MapPin, Users, User, Skull } from 'lucide-react';
+import { BookOpen, Swords, Shield, Map, Globe, MapPin, Users, User, Skull, Dices } from 'lucide-react';
 import TabButton from './components/TabButton';
 import SubTabButton from './components/SubTabButton';
 import HomeTab from './tabs/HomeTab';
+import DiceTab from './tabs/DiceTab'; 
 import CharacterCreationSubTab from './tabs/rules/CharacterCreationSubTab';
 import CombatRulesSubTab from './tabs/rules/CombatRulesSubTab';
 import CulturesSubTab from './tabs/setting/CulturesSubTab';
@@ -22,8 +23,9 @@ export default function DnDCampaign() {
         return { tab: tab || 'home', settingSubTab: 'cultures', rulesSubTab: subTab || 'creation' };
       } else if (tab === 'setting') {
         return { tab: tab || 'home', settingSubTab: subTab || 'cultures', rulesSubTab: 'creation' };
+      } else if (tab === 'dice') {
+        return { tab: tab || 'home', settingSubTab: subTab || 'cultures', rulesSubTab: subTab || 'creation' };
       }
-      
     }
     return { tab: 'home', settingSubTab: 'cultures', rulesSubTab: 'creation' };
   };
@@ -80,6 +82,7 @@ export default function DnDCampaign() {
             <TabButton id="home" icon={Shield} label="Home" activeTab={activeTab} onClick={setActiveTab} />
             <TabButton id="rules" icon={BookOpen} label="Rules" activeTab={activeTab} onClick={setActiveTab} />
             <TabButton id="setting" icon={Map} label="Setting" activeTab={activeTab} onClick={setActiveTab} />
+            <TabButton id="dice" icon={Dices} label="Dice Roller" activeTab={activeTab} onClick={setActiveTab} />
           </div>
         </div>
       </nav>
@@ -128,6 +131,7 @@ export default function DnDCampaign() {
             {activeSettingSubTab === 'villains' && <VilliansSubTab />}
           </>
         )}
+        {activeTab === 'dice' && <DiceTab />}
       </main>
 
       <footer className={footerClasses}>
