@@ -55,18 +55,38 @@ export default function VilliansSubTab() {
         <div>
           <SubsectionTitle>Secondary Threats</SubsectionTitle>
           <div className="space-y-4">
-            <InfoBox title="Emissary Sijen">
-              Discovered a corrupted iron that caused her to attempt a coup of the Dwarven Brotherhood.
-            </InfoBox>
-            <InfoBox title="Osarkic">
-              Spy handler working under Rabidmark. Killed by Iron Ring assassins.
-            </InfoBox>
-            <InfoBox title="Elista Nostrom">
-              Human female, adult. Beautiful necromancer that slaughtered much of Blackglen and was searching for a spellbook from Durlan the Wizard.
-            </InfoBox>
-            <InfoBox title="The Iron Ring">
-              Group of assassins that were hired to clean up the New Kiblic spy network.
-            </InfoBox>
+            <VillainCard
+              name="Emissary Sijen"
+              title="Dwarven Brotherhood representative"
+              description="Discovered a corrupted iron that caused her to attempt a coup of the Dwarven Brotherhood."
+              status="Being handled by the Dwarven Brotherhood"
+              imagePath="./images/villains/sijen.jpeg"
+              isPrimary={false}
+              />
+            <VillainCard
+              name="Osarkic"
+              title="Spy Handler"
+              description="Worked under Rabidmark."
+              status="Killed by the Iron Ring"
+              imagePath="./images/villains/osarkic.jpeg"
+              isPrimary={false}
+              />
+            <VillainCard
+              name="Elista Nostrom"
+              title="Necromancer"
+              description="Beautiful woman that was searching Blackglen for a spellbook owned by Durlan the Wizard. Slaughtered a large portion of Blackglen in the effort."
+              status="Killed and turned to water"
+              imagePath="./images/villains/elista-nostrom.jpeg"
+              isPrimary={false}
+              />
+            <VillainCard
+              name="The Iron Ring"
+              title="Assassin's Guild"
+              description="Were hired to clean up New Kiblic's spy network."
+              status="Unknown if job complete"
+              imagePath="./images/villains/iron-ring.jpeg"
+              isPrimary={false}
+              />
           </div>
         </div>
       </div>

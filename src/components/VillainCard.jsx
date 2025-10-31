@@ -11,16 +11,18 @@ export default function VillainCard({
   imagePath,
   isPrimary = false
 }) {
-  const borderColor = isPrimary ? 'border-red-900' : 'border-red-800';
-  const iconBg = isPrimary ? 'bg-red-600' : 'bg-red-700';
-  const titleColor = isPrimary ? 'text-red-400' : 'text-red-500';
+  const borderColor = isPrimary ? 'border-red-900' : 'border-blue-800';
+  const iconBg = isPrimary ? 'bg-red-600' : 'bg-red-700 hidden';
+  const titleColor = isPrimary ? 'text-red-400' : 'text-blue-500';
+  const imageBorderColor = isPrimary ? 'border-red-600' : "border-blue-600";
+  const statusColor = isPrimary ? 'text-red-400' : "text-blue-400";
 
   return (
-    <div className={`bg-slate-900 p-6 rounded-lg border ${borderColor} hover:border-red-600 transition-colors`}>
+    <div className={`bg-slate-900 p-6 rounded-lg border ${borderColor} hover:${imageBorderColor} transition-colors`}>
       <div className="flex gap-4">
         {/* Villain Image */}
         <div className="flex-shrink-0">
-          <div className="w-22 h-32 bg-slate-800 rounded-lg border-2 border-red-600 overflow-hidden flex items-center justify-center">
+          <div className={`w-22 h-32 bg-slate-800 rounded-lg border-2 ${imageBorderColor} overflow-hidden flex items-center justify-center`}>
             <Zoom>
                 <img 
                 src={imagePath} 
@@ -53,7 +55,7 @@ export default function VillainCard({
           
           {status && (
             <div className="text-sm">
-              <span className="font-semibold text-red-400">Status:</span>{' '}
+              <span className={`font-semibold ${statusColor}`}>Status:</span>{' '}
               <span className="text-slate-400">{status}</span>
             </div>
           )}
