@@ -12,6 +12,8 @@ import CharactersSubTab from './tabs/story/CharactersSubTab';
 import PeopleOfInterestSubTab from './tabs/story/PeopleOfInterestSubTab';
 import VilliansSubTab from './tabs/story/VilliansSubTab';
 import DeitiesSubTab from './tabs/story/DeitiesSubTab';
+import CharacterSheetTab from './tabs/CharacterSheetTab';
+import { ScrollText } from 'lucide-react';
 
 export default function DnDCampaign() {
 // Parse URL hash on load
@@ -23,7 +25,7 @@ export default function DnDCampaign() {
         return { tab: tab || 'home', storySubTab: 'cultures', rulesSubTab: subTab || 'creation' };
       } else if (tab === 'story') {
         return { tab: tab || 'home', storySubTab: subTab || 'cultures', rulesSubTab: 'creation' };
-      } else if (tab === 'dice') {
+      } else if (tab === 'dice' || tab === 'character' || tab === 'home') {
         return { tab: tab || 'home', storySubTab: subTab || 'cultures', rulesSubTab: subTab || 'creation' };
       }
     }
@@ -83,6 +85,7 @@ export default function DnDCampaign() {
             <TabButton id="rules" icon={BookOpen} label="Rules" activeTab={activeTab} onClick={setActiveTab} />
             <TabButton id="story" icon={Map} label="Story" activeTab={activeTab} onClick={setActiveTab} />
             <TabButton id="dice" icon={Dices} label="Dice Roller" activeTab={activeTab} onClick={setActiveTab} />
+            <TabButton id="character" icon={ScrollText} label="My Character" activeTab={activeTab} onClick={setActiveTab} />
           </div>
         </div>
       </nav>
@@ -132,6 +135,7 @@ export default function DnDCampaign() {
           </>
         )}
         {activeTab === 'dice' && <DiceTab />}
+        {activeTab === 'character' && <CharacterSheetTab />}
       </main>
 
       <footer className={footerClasses}>
