@@ -3,6 +3,13 @@ import { Save, Download, Upload, Trash2 } from 'lucide-react';
 import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
+import BasicInfo from './characterSheet/BasicInfo';
+import AbilityScores from './characterSheet/AbilityScores';
+import CombatStats from './characterSheet/CombatStats';
+import WeaponAttack from './characterSheet/WeaponAttack';
+import Currency from './characterSheet/Currency';
+import EquipmentList from './characterSheet/EquipmentList';
+import SpellsList from './characterSheet/SpellsList';
 
 export default function CharacterSheet() {
   const { currentUser } = useAuth();
@@ -12,7 +19,6 @@ export default function CharacterSheet() {
     class: '',
     level: 1,
     background: '',
-    alignment: '',
     stats: {
       strength: 10,
       dexterity: 10,
@@ -29,10 +35,16 @@ export default function CharacterSheet() {
     armorClass: 10,
     speed: 30,
     proficiencyBonus: 2,
-    skills: [],
-    equipment: '',
+    weapons: [],
+    currency: {
+      copper: 0,
+      silver: 0,
+      gold: 0,
+      platinum: 0
+    },
+    equipment: [],
     features: '',
-    spells: '',
+    spells: [],
     notes: ''
   });
   const [saving, setSaving] = useState(false);
@@ -54,7 +66,14 @@ export default function CharacterSheet() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setCharacter(docSnap.data());
+        const data = docSnap.data();
+        setCharacter({
+          ...data,
+          equipment: data.equipment || [],
+          spells: data.spells || [],
+          weapons: data.weapons || [],
+          currency: data.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 }
+        });
       }
     } catch (error) {
       console.error('Failed to load character:', error);
@@ -91,7 +110,6 @@ export default function CharacterSheet() {
   const deleteCharacter = async () => {
     if (!currentUser) return;
     if (!confirm('Are you sure you want to delete this character?')) return;
-
     try {
       const docRef = doc(db, 'characters', currentUser.uid);
       await deleteDoc(docRef);
@@ -101,7 +119,6 @@ export default function CharacterSheet() {
         class: '',
         level: 1,
         background: '',
-        alignment: '',
         stats: {
           strength: 10,
           dexterity: 10,
@@ -114,10 +131,11 @@ export default function CharacterSheet() {
         armorClass: 10,
         speed: 30,
         proficiencyBonus: 2,
-        skills: [],
-        equipment: '',
+        weapons: [],
+        currency: { copper: 0, silver: 0, gold: 0, platinum: 0 },
+        equipment: [],
         features: '',
-        spells: '',
+        spells: [],
         notes: ''
       });
       setMessage('Character deleted');
@@ -145,7 +163,13 @@ export default function CharacterSheet() {
     reader.onload = (e) => {
       try {
         const imported = JSON.parse(e.target.result);
-        setCharacter(imported);
+        setCharacter({
+          ...imported,
+          equipment: imported.equipment || [],
+          spells: imported.spells || [],
+          weapons: imported.weapons || [],
+          currency: imported.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 }
+        });
         setMessage('Character imported successfully!');
         setTimeout(() => setMessage(''), 3000);
       } catch (error) {
@@ -154,10 +178,6 @@ export default function CharacterSheet() {
       }
     };
     reader.readAsText(file);
-  };
-
-  const calculateModifier = (score) => {
-    return Math.floor((score - 10) / 2);
   };
 
   if (!currentUser) {
@@ -179,9 +199,9 @@ export default function CharacterSheet() {
   return (
     <div className="space-y-6">
       {/* Header with Actions */}
-      <div className="bg-slate-900 rounded-lg p-4 border border-slate-600 flex items-center justify-between">
+      <div className="bg-slate-900 rounded-lg p-4 border border-slate-600 flex items-center justify-between flex-wrap gap-3">
         <h3 className="text-2xl font-bold text-blue-400">Character Sheet</h3>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <button
             onClick={saveCharacter}
             disabled={saving}
@@ -224,230 +244,51 @@ export default function CharacterSheet() {
       )}
 
       {/* Basic Info */}
-      <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
-        <h4 className="text-xl font-bold text-blue-400 mb-4">Basic Information</h4>
-        <div className="grid md:grid-cols-3 gap-4">
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Character Name
-            </label>
-            <input
-              type="text"
-              value={character.name}
-              onChange={(e) => setCharacter({ ...character, name: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-              placeholder="Enter name"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Race
-            </label>
-            <input
-              type="text"
-              value={character.race}
-              onChange={(e) => setCharacter({ ...character, race: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-              placeholder="e.g., Human, Dwarf"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Class
-            </label>
-            <input
-              type="text"
-              value={character.class}
-              onChange={(e) => setCharacter({ ...character, class: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-              placeholder="e.g., Fighter, Wizard"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Level
-            </label>
-            <input
-              type="number"
-              min="1"
-              max="20"
-              value={character.level}
-              onChange={(e) => setCharacter({ ...character, level: parseInt(e.target.value) || 1 })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Background
-            </label>
-            <input
-              type="text"
-              value={character.background}
-              onChange={(e) => setCharacter({ ...character, background: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-              placeholder="e.g., Soldier, Noble"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Alignment
-            </label>
-            <input
-              type="text"
-              value={character.alignment}
-              onChange={(e) => setCharacter({ ...character, alignment: e.target.value })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-              placeholder="e.g., Lawful Good"
-            />
-          </div>
-        </div>
-      </div>
+      <BasicInfo character={character} setCharacter={setCharacter} />
 
       {/* Ability Scores */}
-      <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
-        <h4 className="text-xl font-bold text-blue-400 mb-4">Ability Scores</h4>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {Object.entries(character.stats).map(([stat, value]) => (
-            <div key={stat} className="bg-slate-800 p-4 rounded text-center">
-              <label className="block text-xs text-slate-400 mb-2 uppercase font-semibold">
-                {stat}
-              </label>
-              <input
-                type="number"
-                value={value}
-                onChange={(e) => setCharacter({
-                  ...character,
-                  stats: { ...character.stats, [stat]: parseInt(e.target.value) || 0 }
-                })}
-                className="w-full px-3 py-2 bg-slate-900 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none text-center text-lg font-bold mb-2"
-              />
-              <div className="text-2xl font-bold text-blue-400">
-                {calculateModifier(value) >= 0 ? '+' : ''}{calculateModifier(value)}
-              </div>
-              <div className="text-xs text-slate-500">modifier</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <AbilityScores 
+        stats={character.stats} 
+        setStats={(stats) => setCharacter({ ...character, stats })} 
+      />
 
       {/* Combat Stats */}
+      <CombatStats character={character} setCharacter={setCharacter} />
+
+      {/* Weapon Attacks */}
+      <WeaponAttack 
+        weapons={character.weapons} 
+        setWeapons={(weapons) => setCharacter({ ...character, weapons })} 
+      />
+
+      {/* Currency */}
+      <Currency 
+        currency={character.currency} 
+        setCurrency={(currency) => setCharacter({ ...character, currency })} 
+      />
+
+      {/* Equipment */}
+      <EquipmentList 
+        equipment={character.equipment} 
+        setEquipment={(equipment) => setCharacter({ ...character, equipment })} 
+      />
+
+      {/* Features & Traits */}
       <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
-        <h4 className="text-xl font-bold text-blue-400 mb-4">Combat Stats</h4>
-        <div className="grid md:grid-cols-4 gap-4">
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Armor Class
-            </label>
-            <input
-              type="number"
-              value={character.armorClass}
-              onChange={(e) => setCharacter({ ...character, armorClass: parseInt(e.target.value) || 0 })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Speed
-            </label>
-            <input
-              type="number"
-              value={character.speed}
-              onChange={(e) => setCharacter({ ...character, speed: parseInt(e.target.value) || 0 })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Proficiency Bonus
-            </label>
-            <input
-              type="number"
-              value={character.proficiencyBonus}
-              onChange={(e) => setCharacter({ ...character, proficiencyBonus: parseInt(e.target.value) || 0 })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-4 mt-4">
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Current HP
-            </label>
-            <input
-              type="number"
-              value={character.hitPoints.current}
-              onChange={(e) => setCharacter({
-                ...character,
-                hitPoints: { ...character.hitPoints, current: parseInt(e.target.value) || 0 }
-              })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Max HP
-            </label>
-            <input
-              type="number"
-              value={character.hitPoints.max}
-              onChange={(e) => setCharacter({
-                ...character,
-                hitPoints: { ...character.hitPoints, max: parseInt(e.target.value) || 0 }
-              })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-semibold text-blue-300 mb-2">
-              Temp HP
-            </label>
-            <input
-              type="number"
-              value={character.hitPoints.temp}
-              onChange={(e) => setCharacter({
-                ...character,
-                hitPoints: { ...character.hitPoints, temp: parseInt(e.target.value) || 0 }
-              })}
-              className="w-full px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Equipment & Features */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
-          <h4 className="text-xl font-bold text-blue-400 mb-4">Equipment</h4>
-          <textarea
-            value={character.equipment}
-            onChange={(e) => setCharacter({ ...character, equipment: e.target.value })}
-            className="w-full h-40 px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none resize-none"
-            placeholder="List your equipment, weapons, and items..."
-          />
-        </div>
-
-        <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
-          <h4 className="text-xl font-bold text-blue-400 mb-4">Features & Traits</h4>
-          <textarea
-            value={character.features}
-            onChange={(e) => setCharacter({ ...character, features: e.target.value })}
-            className="w-full h-40 px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none resize-none"
-            placeholder="Class features, racial traits, feats..."
-          />
-        </div>
+        <h4 className="text-xl font-bold text-blue-400 mb-4">Features & Traits</h4>
+        <textarea
+          value={character.features}
+          onChange={(e) => setCharacter({ ...character, features: e.target.value })}
+          className="w-full h-40 px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none resize-none"
+          placeholder="Class features, racial traits, feats..."
+        />
       </div>
 
       {/* Spells */}
-      <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
-        <h4 className="text-xl font-bold text-blue-400 mb-4">Spells</h4>
-        <textarea
-          value={character.spells}
-          onChange={(e) => setCharacter({ ...character, spells: e.target.value })}
-          className="w-full h-40 px-4 py-2 bg-slate-800 text-slate-100 rounded border border-slate-600 focus:border-blue-500 focus:outline-none resize-none"
-          placeholder="List your spells, spell slots, and spell save DC..."
-        />
-      </div>
+      <SpellsList 
+        spells={character.spells} 
+        setSpells={(spells) => setCharacter({ ...character, spells })} 
+      />
 
       {/* Notes */}
       <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
