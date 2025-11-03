@@ -4,7 +4,7 @@ export default function CombatStats({ character, setCharacter }) {
   return (
     <div className="bg-slate-900 rounded-lg p-6 border border-slate-600">
       <h4 className="text-xl font-bold text-blue-400 mb-4">Combat Stats</h4>
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 mt-4">
         <div>
           <label className="block text-sm font-semibold text-blue-300 mb-2">
             Armor Class
