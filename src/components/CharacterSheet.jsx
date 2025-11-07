@@ -10,6 +10,7 @@ import WeaponAttack from './characterSheet/WeaponAttack';
 import Currency from './characterSheet/Currency';
 import EquipmentList from './characterSheet/EquipmentList';
 import SpellsList from './characterSheet/SpellsList';
+import Skills from './characterSheet/Skills';
 
 export default function CharacterSheet() {
   const { currentUser } = useAuth();
@@ -27,6 +28,8 @@ export default function CharacterSheet() {
       wisdom: 10,
       charisma: 10
     },
+    savingThrows: [],
+    skills: [],
     hitPoints: {
       current: 0,
       max: 0,
@@ -72,7 +75,9 @@ export default function CharacterSheet() {
           equipment: data.equipment || [],
           spells: data.spells || [],
           weapons: data.weapons || [],
-          currency: data.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 }
+          currency: data.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 },
+          skills: data.skills || [],
+          savingThrows: data.savingThrows || []
         });
       }
     } catch (error) {
@@ -127,6 +132,8 @@ export default function CharacterSheet() {
           wisdom: 10,
           charisma: 10
         },
+        skills: [],
+        savingThrows: [],
         hitPoints: { current: 0, max: 0, temp: 0 },
         armorClass: 10,
         speed: 30,
@@ -168,7 +175,9 @@ export default function CharacterSheet() {
           equipment: imported.equipment || [],
           spells: imported.spells || [],
           weapons: imported.weapons || [],
-          currency: imported.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 }
+          currency: imported.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 },
+          skills: imported.skills || [],
+          savingThrows: imported.savingThrows || []
         });
         setMessage('Character imported successfully!');
         setTimeout(() => setMessage(''), 3000);
@@ -246,14 +255,25 @@ export default function CharacterSheet() {
       {/* Basic Info */}
       <BasicInfo character={character} setCharacter={setCharacter} />
 
+      {/* Combat Stats */}
+      <CombatStats character={character} setCharacter={setCharacter} />
+
       {/* Ability Scores */}
       <AbilityScores 
         stats={character.stats} 
-        setStats={(stats) => setCharacter({ ...character, stats })} 
+        setStats={(stats) => setCharacter({ ...character, stats })}
+        proficiencyBonus={character.proficiencyBonus}
+        savingThrows={character.savingThrows}
+        setSavingThrows={(savingThrows) => setCharacter({ ...character, savingThrows })}
       />
 
-      {/* Combat Stats */}
-      <CombatStats character={character} setCharacter={setCharacter} />
+      {/* Skills */}
+      <Skills 
+        stats={character.stats}
+        proficiencyBonus={character.proficiencyBonus}
+        skills={character.skills}
+        setSkills={(skills) => setCharacter({ ...character, skills })}
+      />
 
       {/* Weapon Attacks */}
       <WeaponAttack 

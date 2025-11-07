@@ -76,3 +76,36 @@ html, body, #root {
   width: 100%;
   min-height: 100vh;
 }
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes roll-appear {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-roll-appear {
+  animation: roll-appear 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
