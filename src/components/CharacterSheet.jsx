@@ -11,6 +11,7 @@ import Currency from './characterSheet/Currency';
 import EquipmentList from './characterSheet/EquipmentList';
 import SpellsList from './characterSheet/SpellsList';
 import Skills from './characterSheet/Skills';
+import FeatsTracker from './characterSheet/FeatsTracker';
 
 export default function CharacterSheet() {
   const { currentUser } = useAuth();
@@ -30,6 +31,7 @@ export default function CharacterSheet() {
     },
     savingThrows: [],
     skills: [],
+    feats: [],
     hitPoints: {
       current: 0,
       max: 0,
@@ -77,7 +79,8 @@ export default function CharacterSheet() {
           weapons: data.weapons || [],
           currency: data.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 },
           skills: data.skills || [],
-          savingThrows: data.savingThrows || []
+          savingThrows: data.savingThrows || [],
+          feats: data.feats || [] 
         });
       }
     } catch (error) {
@@ -133,6 +136,7 @@ export default function CharacterSheet() {
           charisma: 10
         },
         skills: [],
+        feats: [],
         savingThrows: [],
         hitPoints: { current: 0, max: 0, temp: 0 },
         armorClass: 10,
@@ -177,6 +181,7 @@ export default function CharacterSheet() {
           weapons: imported.weapons || [],
           currency: imported.currency || { copper: 0, silver: 0, gold: 0, platinum: 0 },
           skills: imported.skills || [],
+          feats: imported.feats || [],
           savingThrows: imported.savingThrows || []
         });
         setMessage('Character imported successfully!');
@@ -303,6 +308,12 @@ export default function CharacterSheet() {
           placeholder="Class features, racial traits, feats..."
         />
       </div>
+
+      {/* Feats */}
+      <FeatsTracker 
+        feats={character.feats} 
+        setFeats={(feats) => setCharacter({ ...character, feats })} 
+      />
 
       {/* Spells */}
       <SpellsList 
