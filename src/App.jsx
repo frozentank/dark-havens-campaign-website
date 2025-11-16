@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Swords, Shield, Map, Globe, MapPin, Users, User, Skull, Dices, Home, Crown, BookHeart} from 'lucide-react';
+import { BookOpen, Swords, Shield, Map, Globe, MapPin, Users, User, Skull, Dices, Home, Crown, BookHeart, Clock} from 'lucide-react';
 import TabButton from './components/TabButton';
 import SubTabButton from './components/SubTabButton';
 import HomeTab from './tabs/HomeTab';
@@ -13,6 +13,7 @@ import PeopleOfInterestSubTab from './tabs/story/PeopleOfInterestSubTab';
 import VilliansSubTab from './tabs/story/VilliansSubTab';
 import DeitiesSubTab from './tabs/story/DeitiesSubTab';
 import CharacterSheetTab from './tabs/CharacterSheetTab';
+import TimelineSubTab from './tabs/story/TimelineSubTab';
 import { ScrollText } from 'lucide-react';
 
 export default function DnDCampaign() {
@@ -108,6 +109,7 @@ export default function DnDCampaign() {
               <SubTabButton id="cultures" icon={BookHeart} label="Cultures" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
               <SubTabButton id="deities" icon={Crown} label="Deities" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
               <SubTabButton id="maps" icon={MapPin} label="Maps" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
+              <SubTabButton id="timeline" icon={Clock} label="Timeline" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
               <SubTabButton id="characters" icon={User} label="Characters" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
               <SubTabButton id="people" icon={Users} label="People of Interest" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
               <SubTabButton id="villains" icon={Skull} label="Villains" activeStorySubTab={activeStorySubTab} onClick={setActiveStorySubTab} />
@@ -129,6 +131,7 @@ export default function DnDCampaign() {
             {activeStorySubTab === 'cultures' && <CulturesSubTab />}
             {activeStorySubTab === 'deities' && <DeitiesSubTab />}
             {activeStorySubTab === 'maps' && <MapsSubTab />}
+            {activeStorySubTab === 'timeline' && <TimelineSubTab />}
             {activeStorySubTab === 'characters' && <CharactersSubTab />}
             {activeStorySubTab === 'people' && <PeopleOfInterestSubTab />}
             {activeStorySubTab === 'villains' && <VilliansSubTab />}
