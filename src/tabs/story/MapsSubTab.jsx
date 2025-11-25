@@ -64,6 +64,31 @@ export default function MapsSubTab() {
         </div>
 
         <div>
+          <SubsectionTitle>Alistia</SubsectionTitle>
+          <p className="text-slate-300 leading-relaxed mb-4">
+            The continent North of Naulistria
+          </p>
+          <div className="bg-slate-900 rounded border border-slate-600 overflow-hidden">
+            <Zoom>
+              <img
+                src="./images/maps/alistia.jpeg"
+                alt="World Map of Dark Havens"
+                className="w-full h-auto"
+                onError={(e) => {
+                  // Fallback if image doesn't exist
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+            </Zoom>
+            <div className="p-8 text-center hidden flex-col items-center justify-center min-h-[300px]">
+              <MapPin className="text-blue-400 mb-2" size={48} />
+              <p className="text-slate-400">Map placeholder - Add your world map image to /public/images/maps/</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
           <SubsectionTitle>Naulistria</SubsectionTitle>
           <div className="space-y-4">
             <InfoBox title="Leoman">
