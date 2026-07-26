@@ -188,9 +188,7 @@ function CalendarYearBadge({ calendar, principalYear, isLeft }) {
 
   return (
     <div 
-      className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
-        isLeft ? 'flex-row-reverse' : 'flex-row'
-      }`}
+      className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium 'flex-row'`}
       style={{
         backgroundColor: calendar.color + '20',
         borderColor: calendar.color + '40',
@@ -198,10 +196,11 @@ function CalendarYearBadge({ calendar, principalYear, isLeft }) {
         color: calendar.color
       }}
     >
-      <span className="font-semibold">{calendar.abbreviation}</span>
       <span className={isBefore ? 'opacity-60' : ''}>
         {isBefore ? `${Math.abs(year)} before` : year}
       </span>
+      <span className="font-semibold">{calendar.abbreviation}</span>
+      
     </div>
   );
 }

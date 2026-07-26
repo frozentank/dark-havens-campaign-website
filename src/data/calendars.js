@@ -36,7 +36,16 @@ export const calendars = [
     epochName: 'Alfred the Conqueror\'s reign begins',
     epochYear: 5550,
     color: '#782080ff',
-    abbreviation: 'AA'
+    abbreviation: 'NKR'
+  },
+  {
+    id: 'nostrio-first-age',
+    name: 'Elvish Reckoning',
+    culture: 'Elves',
+    epochName: 'Discovery of the Great Stump',
+    epochYear: 0,
+    color: 'rgb(38, 110, 10)',
+    abbreviation: 'GS'
   }
 ];
 

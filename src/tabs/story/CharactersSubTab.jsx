@@ -6,6 +6,11 @@ export default function CharactersSubTab() {
   return (
     <SectionCard>
       <h2 className="text-3xl font-bold text-blue-400 mb-6">Player Characters</h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        Pending
+      </div>
+      
+      <h2 className="text-3xl font-bold text-blue-400 mb-6">Retired Player Characters</h2>
 
       <div className="grid md:grid-cols-2 gap-6">
         <CharacterCard

@@ -23,7 +23,7 @@ export default function HomeTab() {
         </p>
         <div className="grid md:grid-cols-2 gap-4 mt-6">
           <InfoBox title="Current Level">
-            Level 7
+            Level 1
           </InfoBox>
         </div>
       </SectionCard>

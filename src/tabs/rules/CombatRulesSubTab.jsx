@@ -1,6 +1,5 @@
 import React from 'react';
 import SectionCard from '../../components/SectionCard';
-import ShieldTable from './components/ShieldTable';
 
 export default function CombatRulesSubTab() {
   return (
@@ -11,17 +10,7 @@ export default function CombatRulesSubTab() {
         <div>
           <h3 className="text-xl font-bold text-blue-300 mb-3">Initiative</h3>
           <div className='mt-4 mb-2 text-slate-300'>
-            Players will not roll initiative. You will use a static order of 10+Int (or Wis, depending on the situation). Ties are resolved with Wis, then Cha, Dex, Con, and Str. Monsters will reroll initiative each turn and go accordingly. This removes 2 issues: order is set and predictable for your turn (A always goes after B), and you can't predict when the enemy will go.
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-bold text-blue-300 mb-3">Concentration</h3>
-          <div className='mt-4 mb-2 italic text-slate-300'>
-            Concentration is hard in a battle.
-          </div>
-          <div className='mt-4 mb-2 text-slate-300'>
-            To continue concentrating, you must roll at the end of each turn to maintain. You will still get that round of effect through your turn. The DC increases by 1 with each turn, starting at 10 (max is 19 for a 1-minute concentration). You still have to roll for getting hit the same way; this does not increase the DC per round. Outside of combat, if the spell's duration is 1 minute or less, you do not need to concentrate. Otherwise, it is one roll every 1/10 of the max duration (every 6 minutes for an hour length). The first time you would fail (in or out of combat), you can instead take damage to maintain the spell. Take (spell level)d6 psychic damage; this damage cannot be mitigated in any way. The second time you fail the spell is lost.
+            Players will not roll initiative. I will decide the order as we're playing.
           </div>
         </div>
 
@@ -44,29 +33,14 @@ export default function CombatRulesSubTab() {
             I won't hand out inspiration. You will have 1 inspiration for each session. It will reset the next session.
           </div>
           <div className='mt-4 mb-2 text-slate-300'>
-            Inspiration roll also works a bit differently; you can force the reroll of any one dice roll. So if you roll a nat 1, you can reroll that. Or if another player rolls. Or a roll I make. Or if the damage dice are all low, you can inspiration all the damage dice. It also takes into account advantage/disadvantage. So if you roll with advantage in the first place, you can reroll with advantage again.
+            Inspiration roll also works a bit differently; you can force the reroll of any player dice roll. So if you roll a nat 1, you can reroll that. Or if another player rolls. Or if the damage dice are all low, you can inspiration all the damage dice. It also takes into account advantage/disadvantage. So if you roll with advantage in the first place, you can reroll with advantage again.
           </div>
         </div>
 
         <div>
           <h3 className="text-xl font-bold text-blue-300 mb-3">Low-Light</h3>
           <div className='mt-4 mb-2 text-slate-300'>
-            Only dwarves have dark vision. All the other races have low-light vision. Low-light has the following rule:
-          </div>
-          <div className='mt-4 mb-2 italic text-slate-300'>
-            A creature with low-light vision can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of shadowy illumination. It retains the ability to distinguish color and detail under these conditions. A spellcaster with low-light vision can read a scroll as long as even the tiniest of candle flame is next to her as a source of light.
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-bold text-blue-300 mb-3">Shields</h3>
-          <ShieldTable />
-        </div>
-
-        <div>
-          <h3 className="text-xl font-bold text-blue-300 mb-3">Spellcasting</h3>
-          <div className='mt-4 mb-2 text-slate-300'>
-            Focuses are no longer present in the world. Instead, there are component pouches that give a caster their abilities. Each pouch costs 25g (PHB) and has 50 charges.
+            We will use 2024 rules for Darkvision.
           </div>
         </div>
       </div>

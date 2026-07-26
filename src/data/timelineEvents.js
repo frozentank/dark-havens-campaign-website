@@ -37,6 +37,15 @@ export const historicalEvents = [
     significance: 'Beginning of Imperial Reckoning calendar. Establishes human dominance in the region'
   },
   {
+    id: 'second-campaign-start',
+    principalYear: 4584,
+    title: 'Second Campaign Start',
+    description: 'Point when the Second Campaign starts',
+    location: 'The Imperial Capital',
+    participants: ['Player Characters'],
+    significance: 'Start of the game'
+  },
+  {
     id: 'elven-dwarven-alliance',
     principalYear: 4623,
     title: 'The Eternal Alliance',
@@ -82,6 +91,15 @@ export const historicalEvents = [
     significance: 'Creation of the Wastes. Dragonborn flee the land seeking assistance in other nations. Other cultures begin calling them Oshos.'
   },
   {
+    id: 'first-campaign-start',
+    principalYear: 5665,
+    title: 'Start of the First Campaign',
+    description: 'Start of the First Campaign',
+    location: 'Littlehorn, Leoman',
+    participants: ['Player Characters'],
+    significance: 'Start of the campaign'
+  },
+  {
     id: 'dwarven-revolt',
     principalYear: 5665,
     title: 'The Dwarven Brotherhood Revolt',
@@ -100,15 +118,6 @@ export const historicalEvents = [
     significance: 'Recent event that threatens Leoman. Investigation ongoing'
   },
   {
-    id: 'current-day',
-    principalYear: 5666,
-    title: 'Present Day',
-    description: 'The current year.',
-    location: 'Various',
-    participants: ['Player Characters', 'Various Factions'],
-    significance: 'The current year'
-  },
-  {
     id: 'blackglen-incident',
     principalYear: 5666,
     title: 'The Blackglen Incident',
@@ -116,5 +125,24 @@ export const historicalEvents = [
     location: 'Blackglen, Leoman',
     participants: ['Captain Jomorac', 'Elista Nostrom', 'Barinon de Bulbec'],
     significance: 'Reveals ongoing threats in Leoman. Investigation by Duke\'s knights'
+  },
+  {
+    id: 'end-campaign-1',
+    principalYear: 5667,
+    title: 'End of the First Campaign',
+    description: 'The point we stopped the first Campaign.',
+    location: 'Various',
+    participants: ['Player Characters', 'Various Factions'],
+    significance: 'We will likely create another campaign after this point.'
+  },
+  {
+    id: 'collaspe-of-elven-ruins',
+    principalYear: 5667,
+    title: 'Collapse of Nostrio Ruins',
+    description: 'Players cause the final destruction of Nostrio',
+    location: 'Nostrio',
+    participants: ['Lorin'],
+    significance: 'Players caused the abandoned ruins of Nostrio to collapse by disabling Lorin\' contraptions.'
   }
+  
 ];

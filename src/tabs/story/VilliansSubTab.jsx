@@ -43,7 +43,7 @@ export default function VilliansSubTab() {
 
             <VillainCard
               name="Kloompa"
-              title="Devil of the Fourth Layer"
+              title="Devil of the Fourth Temple"
               description="Possess the bodies of recently deceased humanoids. Made a deal with some of the party members for their souls. His soul was found in a gem the group later destroyed."
               status="Unable to return to the mortal plane"
               imagePath="./images/villains/kloompa.jpeg"
