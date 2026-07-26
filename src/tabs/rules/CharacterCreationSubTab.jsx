@@ -68,6 +68,18 @@ export default function CharacterCreationSubTab() {
         </div>
 
         <div>
+          <h3 className="text-xl font-bold text-blue-300 mb-3">Cultures</h3>
+          <ul className="list-disc list-inside space-y-2 text-slate-300">
+            The cultures of Dark Havens can be used to expand your backstory. There are some notes for the current campaign:
+            <li>New Kiblic is currently called the Empire</li>
+            <li>Gufrailand, Gyso, Ebra, Jaster, Leoman, Rugliorhiel, Teflin, and Freeport are all part of the Empire. These cultures are regional clans</li>
+            <li>The Oshos are currently the Freesh, which is also a part of the Empire</li>
+            <li>Nostrio isn't established as a primary group and is instead just "the Elves"</li>
+            <li>The Empire of Nemon the Magnificent does not exist yet</li>
+          </ul>
+        </div>
+
+        <div>
           <h3 className="text-xl font-bold text-blue-300 mb-3">Feats</h3>
           <ul className="list-disc list-inside space-y-2 text-slate-300">
             <li>All Feats will use 2024 rules.</li>
