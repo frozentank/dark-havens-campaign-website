@@ -16,7 +16,7 @@ export default function CharactersSubTab() {
         <CharacterCard
           name="Scoot Bootin"
           details="Human • Artificer • 7"
-          description="Brief character description and personality. What drives this character? What's their role in the party?"
+          description="A home-sick genius adventuring for the sake of home. Uses his throbbing intellect to devise new exploding robots or slurs for elves.
           additionalInfo="Player: Tucker"
         />
         <CharacterCard
