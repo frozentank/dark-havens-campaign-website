@@ -63,34 +63,39 @@ export default function MapsSubTab() {
           </div>
         </div>
 
-        <div>
-          <SubsectionTitle>Alistia</SubsectionTitle>
-          <p className="text-slate-300 leading-relaxed mb-4">
-            The continent North of Naulistria
-          </p>
-          <div className="bg-slate-900 rounded border border-slate-600 overflow-hidden">
-            <Zoom>
-              <img
-                src="./images/maps/alistia.jpeg"
-                alt="World Map of Dark Havens"
-                className="w-full h-auto"
-                onError={(e) => {
-                  // Fallback if image doesn't exist
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-            </Zoom>
-            <div className="p-8 text-center hidden flex-col items-center justify-center min-h-[300px]">
-              <MapPin className="text-blue-400 mb-2" size={48} />
-              <p className="text-slate-400">Map placeholder - Add your world map image to /public/images/maps/</p>
-            </div>
-          </div>
-        </div>
+        
 
         <div>
           <SubsectionTitle>Naulistria</SubsectionTitle>
           <div className="space-y-4">
+            <InfoBox title="New Kiblic Capital">
+              <Zoom>
+                <img
+                  src="./images/maps/new-kiblic-capital.jpeg"
+                  alt="New Kiblic Capital"
+                  className="w-full h-auto object-cover rounded mb-2"
+                />
+              </Zoom>
+            </InfoBox>
+            <InfoBox title="New Kiblic Capital (Districts)">
+              <Zoom>
+                <img
+                  src="./images/maps/new-kiblic-capital-districts.jpeg"
+                  alt="New Kiblic Capital (Districts)"
+                  className="w-full h-auto object-cover rounded mb-2"
+                />
+              </Zoom>
+            </InfoBox>
+            
+            <InfoBox title="Eastern New Kiblic">
+              <Zoom>
+                <img
+                  src="./images/maps/eastern-new-kiblic.jpeg"
+                  alt="Eastern New Kiblic"
+                  className="w-full h-auto object-cover rounded mb-2"
+                />
+              </Zoom>
+            </InfoBox>
             <InfoBox title="Leoman">
               <Zoom>
                 <img
@@ -101,17 +106,6 @@ export default function MapsSubTab() {
               </Zoom>
               <p>A small landlock nation where the campaign started.</p>
             </InfoBox>
-
-            <InfoBox title="Eastern New Kiblic">
-              <Zoom>
-                <img
-                  src="./images/maps/eastern-new-kiblic.jpeg"
-                  alt="Eastern New Kiblic"
-                  className="w-full h-auto object-cover rounded mb-2"
-                />
-              </Zoom>
-            </InfoBox>
-
             <InfoBox title="Southern New Kiblic">
               <Zoom>
                 <img
@@ -166,15 +160,6 @@ export default function MapsSubTab() {
                 />
               </Zoom>
             </InfoBox>
-            <InfoBox title="New Kiblic Capital">
-              <Zoom>
-                <img
-                  src="./images/maps/new-kiblic-capital.jpeg"
-                  alt="New Kiblic Capital"
-                  className="w-full h-auto object-cover rounded mb-2"
-                />
-              </Zoom>
-            </InfoBox>
             <InfoBox title="Forgotten Mountain City">
               <Zoom>
                 <img
@@ -193,6 +178,31 @@ export default function MapsSubTab() {
                 />
               </Zoom>
             </InfoBox>
+          </div>
+        </div>
+
+        <div>
+          <SubsectionTitle>Alistia</SubsectionTitle>
+          <p className="text-slate-300 leading-relaxed mb-4">
+            The continent North of Naulistria
+          </p>
+          <div className="bg-slate-900 rounded border border-slate-600 overflow-hidden">
+            <Zoom>
+              <img
+                src="./images/maps/alistia.jpeg"
+                alt="World Map of Dark Havens"
+                className="w-full h-auto"
+                onError={(e) => {
+                  // Fallback if image doesn't exist
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+            </Zoom>
+            <div className="p-8 text-center hidden flex-col items-center justify-center min-h-[300px]">
+              <MapPin className="text-blue-400 mb-2" size={48} />
+              <p className="text-slate-400">Map placeholder - Add your world map image to /public/images/maps/</p>
+            </div>
           </div>
         </div>
       </div>
