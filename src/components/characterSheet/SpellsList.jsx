@@ -81,7 +81,7 @@ export default function SpellsList({ spells = [], setSpells }) {
           </label>
           <button
             onClick={addSpell}
-            className="ml-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors"
+            className="ml-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
           >
             <Plus size={18} />
             Add Spell
@@ -119,7 +119,7 @@ export default function SpellsList({ spells = [], setSpells }) {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setExpandedSpell(expandedSpell === index ? null : index)}
-                    className="text-slate-400 hover:text-slate-300 p-1 transition-colors"
+                    className="text-slate-400 hover:text-slate-300 p-1 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
                   >
                     {expandedSpell === index ? (
                       <ChevronUp size={18} />
@@ -129,7 +129,7 @@ export default function SpellsList({ spells = [], setSpells }) {
                   </button>
                   <button
                     onClick={() => removeSpell(index)}
-                    className="text-red-400 hover:text-red-300 p-1 transition-colors"
+                    className="text-red-400 hover:text-red-300 p-1 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
                   >
                     <X size={18} />
                   </button>

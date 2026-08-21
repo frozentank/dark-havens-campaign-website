@@ -66,7 +66,7 @@ function LoginModal({ onClose, onSwitchToSignup }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-slate-400 hover:text-slate-200"
+          className="absolute top-4 right-4 text-slate-400 hover:text-slate-200 bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <X size={24} />
         </button>
@@ -131,7 +131,7 @@ function LoginModal({ onClose, onSwitchToSignup }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded flex items-center justify-center gap-2 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed"
+            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded flex items-center justify-center gap-2 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed bg-gradient-to-b from-slate-800 to-slate-900"
           >
             <LogIn size={20} />
             {loading ? 'Logging in...' : 'Login'}
@@ -143,7 +143,7 @@ function LoginModal({ onClose, onSwitchToSignup }) {
           <button
             onClick={handleResetPassword}
             disabled={loading}
-            className="text-blue-400 hover:text-blue-300 text-sm font-semibold disabled:text-slate-500"
+            className="text-blue-400 hover:text-blue-300 text-sm font-semibold disabled:text-slate-500 bg-gradient-to-b from-slate-800 to-slate-900"
           >
             Forgot Password?
           </button>
@@ -155,7 +155,7 @@ function LoginModal({ onClose, onSwitchToSignup }) {
             Don't have an account?{' '}
             <button
               onClick={onSwitchToSignup}
-              className="text-blue-400 hover:text-blue-300 font-semibold"
+              className="text-blue-400 hover:text-blue-300 font-semibold bg-gradient-to-b from-slate-800 to-slate-900"
             >
               Sign Up
             </button>
@@ -193,7 +193,7 @@ export default function AuthLogin() {
         </div>
         <button
           onClick={handleLogout}
-          className="px-3 py-1 bg-red-900 hover:bg-red-800 text-white rounded text-sm flex items-center gap-2 transition-colors"
+          className="px-3 py-1 bg-red-900 hover:bg-red-800 text-white rounded text-sm flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <LogOut size={16} />
           Logout
@@ -207,14 +207,14 @@ export default function AuthLogin() {
       <div className="flex gap-2">
         <button
           onClick={() => setShowLogin(true)}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <LogIn size={20} />
           Login
         </button>
         <button
           onClick={() => setShowSignup(true)}
-          className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded flex items-center gap-2 transition-colors"
+          className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <User size={20} />
           Sign Up

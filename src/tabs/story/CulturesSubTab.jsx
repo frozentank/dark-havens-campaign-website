@@ -832,7 +832,7 @@ export default function CulturesSubTab() {
   const CultureListItem = ({ culture }) => (
     <button
       onClick={() => setSelectedCulture(culture)}
-      className={`w-full text-left p-4 rounded-lg border transition-all ${selectedCulture?.name === culture.name
+      className={`w-full text-left p-4 rounded-lg border transition-all bg-gradient-to-b from-slate-800 to-slate-900 ${selectedCulture?.name === culture.name
           ? 'bg-blue-900 border-blue-500'
           : 'bg-slate-900 border-slate-600 hover:bg-slate-800'
         }`}

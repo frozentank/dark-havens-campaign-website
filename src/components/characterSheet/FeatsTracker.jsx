@@ -74,7 +74,7 @@ export default function FeatsTracker({ feats, setFeats }) {
         <h4 className="text-xl font-bold text-blue-400">Feats</h4>
         <button
           onClick={() => setIsEditing(!isEditing)}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <Edit2 size={18} />
           {isEditing ? 'Cancel' : 'Edit Feats'}
@@ -94,7 +94,7 @@ export default function FeatsTracker({ feats, setFeats }) {
               >
                 <button
                   onClick={() => setExpandedFeat(expandedFeat === feat.id ? null : feat.id)}
-                  className="w-full flex items-center justify-between p-4 hover:bg-slate-700 transition-colors"
+                  className="w-full flex items-center justify-between p-4 hover:bg-slate-700 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
                 >
                   <div className="flex-1 text-left">
                     <h5 className="text-lg font-semibold text-blue-300">{feat.name}</h5>
@@ -240,13 +240,13 @@ export default function FeatsTracker({ feats, setFeats }) {
                 <div className="flex gap-2">
                   <button
                     onClick={cancelEdit}
-                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded transition-colors"
+                    className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={saveFeats}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
                   >
                     <Check size={18} />
                     Save Feats

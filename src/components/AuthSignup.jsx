@@ -63,7 +63,7 @@ export default function AuthSignup({ onClose, onSwitchToLogin }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-slate-400 hover:text-slate-200"
+          className="absolute top-4 right-4 text-slate-400 hover:text-slate-200 bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <X size={24} />
         </button>
@@ -156,7 +156,7 @@ export default function AuthSignup({ onClose, onSwitchToLogin }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded flex items-center justify-center gap-2 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed"
+            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded flex items-center justify-center gap-2 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed bg-gradient-to-b from-slate-800 to-slate-900"
           >
             <UserPlus size={20} />
             {loading ? 'Creating Account...' : 'Sign Up'}
@@ -169,7 +169,7 @@ export default function AuthSignup({ onClose, onSwitchToLogin }) {
             Already have an account?{' '}
             <button
               onClick={onSwitchToLogin}
-              className="text-blue-400 hover:text-blue-300 font-semibold"
+              className="text-blue-400 hover:text-blue-300 font-semibold bg-gradient-to-b from-slate-800 to-slate-900"
             >
               Login
             </button>

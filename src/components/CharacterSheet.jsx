@@ -219,19 +219,19 @@ export default function CharacterSheet() {
           <button
             onClick={saveCharacter}
             disabled={saving}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors disabled:bg-slate-700 disabled:cursor-not-allowed bg-gradient-to-b from-slate-800 to-slate-900"
           >
             <Save size={18} />
             {saving ? 'Saving...' : 'Save'}
           </button>
           <button
             onClick={exportCharacter}
-            className="px-4 py-2 bg-green-900 hover:bg-green-800 text-white rounded flex items-center gap-2 transition-colors"
+            className="px-4 py-2 bg-green-900 hover:bg-green-800 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
           >
             <Download size={18} />
             Export
           </button>
-          <label className="px-4 py-2 bg-yellow-900 hover:bg-yellow-800 text-white rounded flex items-center gap-2 transition-colors cursor-pointer">
+          <label className="px-4 py-2 bg-yellow-900 hover:bg-yellow-800 text-white rounded flex items-center gap-2 transition-colors cursor-pointer bg-gradient-to-b from-slate-800 to-slate-900">
             <Upload size={18} />
             Import
             <input
@@ -243,7 +243,7 @@ export default function CharacterSheet() {
           </label>
           <button
             onClick={deleteCharacter}
-            className="px-4 py-2 bg-red-900 hover:bg-red-800 text-white rounded flex items-center gap-2 transition-colors"
+            className="px-4 py-2 bg-red-900 hover:bg-red-800 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
           >
             <Trash2 size={18} />
             Delete

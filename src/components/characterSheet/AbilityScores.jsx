@@ -113,7 +113,7 @@ export default function AbilityScores({ stats, setStats, proficiencyBonus, savin
               {/* Ability Check Roll Button */}
               <button
                 onClick={() => rollAbilityCheck(stat)}
-                className="w-full px-2 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center justify-center gap-1 transition-colors text-xs mb-2"
+                className="w-full px-2 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center justify-center gap-1 transition-colors text-xs mb-2 bg-gradient-to-b from-slate-800 to-slate-900"
                 title={`Roll ${stat} check`}
               >
                 <Dices size={12} />
@@ -138,7 +138,7 @@ export default function AbilityScores({ stats, setStats, proficiencyBonus, savin
                 </div>
                 <button
                   onClick={() => rollSavingThrow(stat)}
-                  className="w-full px-2 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded flex items-center justify-center gap-1 transition-colors text-xs"
+                  className="w-full px-2 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded flex items-center justify-center gap-1 transition-colors text-xs bg-gradient-to-b from-slate-800 to-slate-900"
                   title={`Roll ${stat} saving throw`}
                 >
                   <Dices size={12} />

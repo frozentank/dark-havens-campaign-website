@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TabButton({ id, icon: Icon, label, activeTab, onClick }) {
-  const baseClasses = "flex items-center gap-2 px-6 py-3 font-semibold transition-all";
+  const baseClasses = "flex items-center gap-2 px-6 py-3 font-semibold transition-all bg-gradient-to-b from-slate-800 to-slate-900";
   const activeClasses = activeTab === id 
     ? "bg-blue-600 text-white shadow-lg" 
     : "bg-slate-700 text-slate-300 hover:bg-slate-600";

@@ -168,7 +168,7 @@ export default function Skills({ stats, proficiencyBonus, skills, setSkills }) {
         {/* Roll Button */}
         <button
           onClick={() => rollSkill(skill.name, skill.ability)}
-          className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-1 transition-colors text-sm"
+          className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-1 transition-colors text-sm bg-gradient-to-b from-slate-800 to-slate-900"
           title={`Roll ${skill.name}`}
         >
           <Dices size={14} />

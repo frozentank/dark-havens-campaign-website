@@ -35,7 +35,7 @@ export const calendars = [
     culture: 'New Kiblic',
     epochName: 'Alfred the Conqueror\'s reign begins',
     epochYear: 5550,
-    color: '#782080ff',
+    color: '#782080',
     abbreviation: 'NKR'
   },
   {
@@ -44,7 +44,7 @@ export const calendars = [
     culture: 'Elves',
     epochName: 'Discovery of the Great Stump',
     epochYear: 0,
-    color: 'rgb(38, 110, 10)',
+    color: '#266e0a',
     abbreviation: 'GS'
   }
 ];

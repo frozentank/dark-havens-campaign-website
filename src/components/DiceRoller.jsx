@@ -116,7 +116,7 @@ export default function DiceRoller() {
           <div className="flex items-end">
             <button
               onClick={handleRoll}
-              className="w-full px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded flex items-center justify-center gap-2 transition-colors"
+              className="w-full px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded flex items-center justify-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
             >
               <Dices size={20} />
               Roll
@@ -136,7 +136,7 @@ export default function DiceRoller() {
                 setModifier(0);
                 setTimeout(handleRoll, 50);
               }}
-              className="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-sm transition-colors border border-slate-600"
+              className="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-sm transition-colors border border-slate-600 bg-gradient-to-b from-slate-800 to-slate-900"
             >
               {dice.label}
             </button>
@@ -151,7 +151,7 @@ export default function DiceRoller() {
           {rolls.length > 0 && (
             <button
               onClick={clearHistory}
-              className="px-3 py-1 bg-red-900 hover:bg-red-800 text-white rounded text-sm flex items-center gap-2 transition-colors"
+              className="px-3 py-1 bg-red-900 hover:bg-red-800 text-white rounded text-sm flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
             >
               <RotateCcw size={16} />
               Clear History
@@ -203,7 +203,7 @@ export default function DiceRoller() {
                   </div>
                   <button
                     onClick={() => deleteRoll(roll.id)}
-                    className="text-red-400 hover:text-red-300 p-2 transition-colors"
+                    className="text-red-400 hover:text-red-300 p-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
                     title="Delete roll"
                   >
                     <Trash2 size={18} />

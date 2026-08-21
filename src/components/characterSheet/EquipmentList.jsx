@@ -34,7 +34,7 @@ export default function EquipmentList({ equipment, setEquipment }) {
         />
         <button
           onClick={addEquipment}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors"
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center gap-2 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
         >
           <Plus size={18} />
           Add
@@ -54,7 +54,7 @@ export default function EquipmentList({ equipment, setEquipment }) {
               <span className="text-slate-300">{item}</span>
               <button
                 onClick={() => removeEquipment(index)}
-                className="text-red-400 hover:text-red-300 p-1 transition-colors"
+                className="text-red-400 hover:text-red-300 p-1 transition-colors bg-gradient-to-b from-slate-800 to-slate-900"
               >
                 <X size={18} />
               </button>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function SubTabButton({ id, icon: Icon, label, activeSubTab, onClick }) {
-  const baseClasses = "flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all rounded";
+  const baseClasses = "flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all rounded bg-gradient-to-b from-slate-800 to-slate-900";
   const activeClasses = activeSubTab === id 
     ? "bg-blue-500 text-white" 
     : "bg-slate-700 text-slate-300 hover:bg-slate-600";
